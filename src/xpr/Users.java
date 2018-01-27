@@ -1,17 +1,20 @@
 package xpr;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Users {
 
-	private Twitter twitter;
-	private Console console;
-
-	public Users(Twitter twitter, Console console) {
-		this.twitter = twitter;
-		this.console = console;
-	}
+	private List<User> users = new ArrayList<>();
 
 	public User get(String name) {
-		return new User(name, console);
+		for (User user : users ) {
+			if(user.hasName(name))
+				return user;
+		}
+		User user = new User(name);
+		users.add(user);
+		return user;
 	}
 
 }

@@ -26,14 +26,20 @@ public class Twitter{
 		User user = users.get(string.split(" ")[0]);
 		
 		if(string.contains(POSTING)) {
-			Post post = new Post(string.split(POSTING)[1]);
-			user.posting(post);
-			return;
+			posting(user, string.split(POSTING)[1]);
 		}
 		else{
-			for (Post post : user.posts) {
-				console.println("> "+post.text);
-			}
+			reading(user);
+		}
+	}
+
+	private void posting(User user, String text) {
+		user.posting(new Post(text));
+	}
+
+	private void reading(User user) {
+		for (Post post : user.posts) {
+			console.println(post.text);
 		}
 	}
 }

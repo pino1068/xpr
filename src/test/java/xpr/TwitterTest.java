@@ -64,4 +64,17 @@ public class TwitterTest {
 		assertEquals("> Damn! We lost! (5 minutes ago)",console.lines().get(1));
 		assertEquals("> Good game though. (5 minutes ago)",console.lines().get(2));
 	}
+	
+	@Test
+	public void aliceWall() throws Exception {
+		console.addTime("5 minutes");
+		
+		twitter.send("Alice -> I love the weather today");
+		twitter.send("Alice -> it's nice");
+		
+		twitter.send("Alice wall");
+		assertEquals(2, console.lines().size());
+		assertEquals("> Alice - I love the weather today (5 minutes ago)",console.lines().get(0));
+		assertEquals("> Alice - it's nice (5 minutes ago)",console.lines().get(1));
+	}
 }

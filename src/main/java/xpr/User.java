@@ -5,8 +5,8 @@ import java.util.List;
 
 public class User {
 
-	private String name;
-	List<Post> posts;
+	String name;
+	private List<Post> posts;
 
 	public User(String name) {
 		this.name = name;
@@ -19,5 +19,9 @@ public class User {
 
 	public boolean hasName(String name) {
 		return this.name.equals(name);
+	}
+
+	public List<Post> posts() {
+		return posts;
 	}
 }

@@ -1,9 +1,9 @@
 package xpr;
-//import java.io.Console;
 
 public class Twitter{
 
 	private static final String POSTING = " -> ";
+	private static final String WALL = " wall";
 	private Console console;
 	private Users users;
 
@@ -27,6 +27,9 @@ public class Twitter{
 		User user = users.get(string.split(" ")[0]);
 		if(string.contains(POSTING)) 
 			posting(user, string.split(POSTING)[1]);
+		else if(string.contains(WALL)) 
+			wall(user);
+
 		else
 			reading(user);
 	}
@@ -36,8 +39,14 @@ public class Twitter{
 	}
 
 	private void reading(User user) {
-		for (Post post : user.posts) {
+		for (Post post : user.posts()) {
 			console.println(post.text);
+		}
+	}
+	
+	private void wall(User user) {
+		for (Post post : user.posts()) {
+			console.println(user.name+" - "+ post.text);
 		}
 	}
 }

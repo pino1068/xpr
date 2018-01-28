@@ -64,4 +64,5 @@ Since the project is build using Gradle, we suggest to run the following command
 Feel free to use some other technique for building, testing and running the app.
 
 Cheers,
+
 pino

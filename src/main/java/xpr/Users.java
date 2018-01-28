@@ -8,8 +8,8 @@ public class Users {
 	private List<User> users = new ArrayList<>();
 
 	public User get(String name) {
-		for (User user : users ) {
-			if(user.hasName(name))
+		for (User user : users) {
+			if (user.hasName(name))
 				return user;
 		}
 		User user = new User(name);

@@ -17,9 +17,9 @@ public class Post {
 	}
 
 	public void wallTo(Console console) {
-		console.println(time, user.name+" - "+ text);
+		console.println(time, user.name + " - " + text);
 	}
-	
+
 	public long getTime() {
 		return time;
 	}

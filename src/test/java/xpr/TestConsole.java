@@ -16,8 +16,8 @@ public class TestConsole implements Console {
 
 	@Override
 	public void println(long time, String line) {
-		String timeAgo = this.time+" ago";
-		out.add(SHELL+line +" ("+timeAgo+")");
+		String timeAgo = this.time + " ago";
+		out.add(SHELL + line + " (" + timeAgo + ")");
 	}
 
 	public List<String> lines() {

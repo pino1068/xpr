@@ -5,11 +5,13 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class Posts implements Iterable<Post>{
+public class Posts implements Iterable<Post> {
 	private List<Post> posts = new ArrayList<>();
 
-	public Posts(Iterable<Post> init) {
-		addAll(init);
+	public Posts(List<User> followed) {
+		for (User user : followed) {
+			addAll(user.posts);
+		}
 	}
 
 	public Posts() {
@@ -28,7 +30,19 @@ public class Posts implements Iterable<Post>{
 	public void addAll(Iterable<Post> others) {
 		for (Post post : others) {
 			add(post);
-		};
+		}
+	}
+
+	public void wallTo(Console console) {
+		for (Post post : this) {
+			post.wallTo(console);
+		}
+	}
+
+	public void readingTo(Console console) {
+		for (Post post : this) {
+			post.readTo(console);
+		}
 	}
 
 }

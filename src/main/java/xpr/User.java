@@ -1,56 +1,46 @@
 package xpr;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
-
 	String name;
-	private Posts posts2 = new Posts();
-	private List<User> follows;
+	Posts posts = new Posts();
+	private List<User> followed;
 
 	public User(String name) {
 		this.name = name;
-		this.follows = new ArrayList<>();
+		this.followed = new ArrayList<>();
 	}
 
 	public void posting(Post post) {
-		this.posts2.add(post);
+		this.posts.add(post);
 	}
 
 	public boolean hasName(String name) {
 		return this.name.equals(name);
 	}
 
-	public Iterable<Post> posts() {
-		return posts2;
-	}
-
 	public void follows(User user) {
-		follows.add(user);
+		followed.add(user);
 	}
 
 	public void wallTo(Console console) {
-		wallPosts(allPosts(), console);
-	}
-
-	private Iterable<Post> allPosts() {
-		Posts posts = new Posts(posts());
-		for (User user : follows) {
-			posts.addAll(user.posts());
-		}
-		return posts;
-	}
-
-	private void wallPosts(Iterable<Post> posts, Console console) {
-		for (Post post : posts) {
-			post.wallTo(console);
-		}
+		allPosts().wallTo(console);
 	}
 
 	public void readingTo(Console console) {
-		for (Post post : posts()) {
-			post.readTo(console);
-		}
+		posts.readingTo(console);
+	}
+
+	private Posts allPosts() {
+		return new Posts(allOfUs());
+	}
+
+	private List<User> allOfUs() {
+		List<User> allUsers = new ArrayList<>(followed);
+		allUsers.add(this);
+		return allUsers;
 	}
 }

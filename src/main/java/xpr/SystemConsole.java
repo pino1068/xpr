@@ -20,11 +20,12 @@ public class SystemConsole implements Console {
             return br.readLine();
         }catch(IOException e)
         {
-            return null;
+        	System.out.println(e);
+        	throw new RuntimeException(e);
         }
     }
     @Override
 	public void println(String line){
-        ps.println(line);
+        ps.println("> "+line);
     }
 }

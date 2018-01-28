@@ -59,8 +59,10 @@ Since the project is build using Gradle, we suggest to run the following command
  - check the results here: build/reports/tests/index.html
  - if all right, than: 
     - java -cp build/libs/xpepper.jar xpr.Twitter
+    - enjoy it!
  
 Feel free to use some other technique for building, testing and running the app.
 
 Cheers,
+
 pino

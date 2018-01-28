@@ -15,22 +15,20 @@ public class Twitter{
 	public static void main(String[] args) {
 		Console console = new SystemConsole();
 		Twitter twitter = new Twitter(console);
-	    String text = null;
-	    while(!"quit".equals(text)){
-		    text = console.readLine("> ");
+	    while(true){
+		    String text = console.readLine("> ");
+		    if("quit".equals(text))
+		    	break;
 		    twitter.send(text);
 	    }
 	}
 
 	public void send(String string) {
 		User user = users.get(string.split(" ")[0]);
-		
-		if(string.contains(POSTING)) {
+		if(string.contains(POSTING)) 
 			posting(user, string.split(POSTING)[1]);
-		}
-		else{
+		else
 			reading(user);
-		}
 	}
 
 	private void posting(User user, String text) {

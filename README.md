@@ -1,3 +1,5 @@
+release version has tag "1.0"
+
 Social Networking Kata
 ----------------------
 

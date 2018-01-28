@@ -5,6 +5,7 @@ import java.util.List;
 
 public class TestConsole implements Console {
 
+	private static final String SHELL = "> ";
 	private List<String> out = new ArrayList<>();
 	private String time = "( 0 seconds ago)";
 
@@ -16,7 +17,7 @@ public class TestConsole implements Console {
 	@Override
 	public void println(String line) {
 		String timeAgo = time+" ago";
-		out.add(line +" ("+timeAgo+")");
+		out.add(SHELL+line +" ("+timeAgo+")");
 	}
 
 	public List<String> lines() {

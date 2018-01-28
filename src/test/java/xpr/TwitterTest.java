@@ -83,7 +83,6 @@ public class TwitterTest {
 		console.addTime("5 minutes");
 		
 		send("Alice follows Bob");
-		
 		send("Alice -> I love the weather today");
 		send("Bob -> heila!");
 		

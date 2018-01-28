@@ -13,11 +13,11 @@ public class Post {
 	}
 
 	public void readTo(Console console) {
-		console.println(text);
+		console.println(time, text);
 	}
 
 	public void wallTo(Console console) {
-		console.println(user.name+" - "+ text);
+		console.println(time, user.name+" - "+ text);
 	}
 	
 	public long getTime() {

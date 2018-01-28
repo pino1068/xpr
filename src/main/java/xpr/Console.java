@@ -1,8 +1,5 @@
 package xpr;
 public interface Console {
-
 	String readLine(String out);
-
-	void println(String line);
-
+	void println(long time, String line);
 }

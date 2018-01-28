@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
+import time.TimeAgo;
+
 public class SystemConsole implements Console {
-    BufferedReader br;
+    private static final String SHELL = "> ";
+	BufferedReader br;
     PrintStream ps;
 
     public SystemConsole(){
@@ -24,8 +27,10 @@ public class SystemConsole implements Console {
         	throw new RuntimeException(e);
         }
     }
+    
     @Override
-	public void println(String line){
-        ps.println("> "+line);
+	public void println(long time, String line){
+        String timeAgo = TimeAgo.toDuration(System.currentTimeMillis()-time);
+		ps.println(SHELL+line +" ("+timeAgo +")");
     }
 }

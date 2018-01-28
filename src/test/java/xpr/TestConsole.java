@@ -7,7 +7,7 @@ public class TestConsole implements Console {
 
 	private static final String SHELL = "> ";
 	private List<String> out = new ArrayList<>();
-	private String time = "( 0 seconds ago)";
+	private String time = "0 seconds";
 
 	@Override
 	public String readLine(String line) {
@@ -15,8 +15,8 @@ public class TestConsole implements Console {
 	}
 
 	@Override
-	public void println(String line) {
-		String timeAgo = time+" ago";
+	public void println(long time, String line) {
+		String timeAgo = this.time+" ago";
 		out.add(SHELL+line +" ("+timeAgo+")");
 	}
 

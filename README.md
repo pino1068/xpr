@@ -50,3 +50,14 @@ Implement a console-based social networking application (similar to Twitter) sat
 
 **CODE SUBMISSION:** Add the code to your own Github account and send us the link.
 
+## HOW TO USE
+
+Since the project is build using Gradle, we suggest to run the following commands for building and running the application:
+
+ - ./gradlew assemble
+ - java -cp build/libs/xpepper.jar xpr.Twitter
+ 
+Feel free to use some other technique for building, testing and running the app.
+
+Cheers,
+pino

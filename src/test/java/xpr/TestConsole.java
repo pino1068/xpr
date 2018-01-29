@@ -6,8 +6,12 @@ import java.util.List;
 public class TestConsole implements Console {
 
 	private static final String SHELL = "> ";
-	private List<String> out = new ArrayList<>();
-	private String time = "0 seconds";
+	private final List<String> out = new ArrayList<>();
+	private final String time;
+
+	public TestConsole(String time) {
+		this.time = time;
+	}
 
 	@Override
 	public String readLine(String line) {
@@ -22,10 +26,6 @@ public class TestConsole implements Console {
 
 	public List<String> lines() {
 		return out;
-	}
-
-	public void addTime(String time) {
-		this.time = time;
 	}
 
 }
